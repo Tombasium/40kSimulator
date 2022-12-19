@@ -1,0 +1,32 @@
+{
+    "Boyz":{
+        "Boyz": {
+            "min": 9,
+            "max": 29
+        },
+        "BoyzBossNob": {
+            "min": 1,
+            "max": 1
+        }
+    },
+    "BeastSnaggaBoyz": {
+        "BeastSnaggaBoy": {
+            "min": 9,
+            "max": 19
+        },
+        "BeastSnaggaNob": {
+            "min": 1,
+            "max": 1
+        }
+    },
+    "Nobz": {
+        "Nob": {
+            "min": 4,
+            "max": 9
+        },
+        "BossNob": {
+            "min": 1,
+            "max": 1
+        }
+    }
+}

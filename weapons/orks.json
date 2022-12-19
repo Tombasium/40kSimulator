@@ -1,0 +1,20 @@
+{
+    "melee": {
+        "Choppa": {
+            "AP": 1,
+            "D": 1,
+            "ABonus": 1
+        },
+        "BigChoppa": {
+            "S": 2,
+            "AP": 1,
+            "D": 2
+        },
+        "PowerKlaw": {
+            "S": "2x",
+            "AP": 3,
+            "D": 1,
+            "HRAmod": -1
+        }
+    }
+}
