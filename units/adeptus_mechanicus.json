@@ -1,0 +1,13 @@
+{
+    "Skitarii Vanguard":{
+        "Skitarii Vanguard": {
+            "min": 4,
+            "max": 19
+        },
+        "Skitarii Vanguard Alpha": {
+            "leader": true,
+            "min": 1,
+            "max": 1
+        }
+    }
+}

@@ -7,18 +7,6 @@ from utils import parse_unit_data
 
 UNITS = parse_unit_data()
 
-    # "Nobz": {
-    #     "Nob": {
-    #         "min": 4,
-    #         "max": 9
-    #     },
-    #     "BossNob": {
-    #         "leader": true,
-    #         "min": 1,
-    #         "max": 1
-    #     }
-    # },
-
 @dataclass
 class Unit():
     name: str

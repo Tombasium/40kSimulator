@@ -318,5 +318,20 @@ attack_profiles = [
             'Dam': 1,
             'xplode': 6
         }
+    },
+    {
+        'attacker': 'Cadian Shock Troops',
+        'defender': 'Skitarii',
+        'waagh': False,
+        'profile':{
+            'debug': False, 
+            'A': 18, 
+            'S': 3, 
+            'WS': 3, 
+            'T': 3, 
+            'Sv': 4, 
+            'Dam': 1,
+            'xplode': 6
+        }
     }
 ]

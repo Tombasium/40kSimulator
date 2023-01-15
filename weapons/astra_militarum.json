@@ -1,0 +1,11 @@
+{
+    "ranged":{
+        "Lasgun": {
+            "Range": "24",
+            "Type": "Rapid Fire 1",
+            "S": "3",
+            "AP": "0",
+            "D": "1"
+        }
+    }
+}
