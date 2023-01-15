@@ -1,20 +1,48 @@
 {
     "melee": {
         "Choppa": {
-            "AP": 1,
-            "D": 1,
-            "ABonus": 1
+            "Range": 0,
+            "Type": "Melee",
+            "S": "User",
+            "AP": -1,
+            "D": "1",
+            "Abilities": [
+                "+1A"
+            ]
         },
         "BigChoppa": {
-            "S": 2,
-            "AP": 1,
-            "D": 2
+            "Range": 0,
+            "Type": "Melee",
+            "S": "+2",
+            "AP": -1,
+            "D": "2"
         },
         "PowerKlaw": {
-            "S": "2x",
-            "AP": 3,
-            "D": 1,
-            "HRAmod": -1
+            "Range": 0,
+            "Type": "Melee",
+            "S": "x2",
+            "AP": -3,
+            "D": "2",
+            "Abilities": [
+                "+1HR"
+            ]
+        },
+        "Killsaw": {
+            "Range": 0,
+            "Type": "Melee",
+            "S": "x2",
+            "AP": -4,
+            "D": "D3",
+            "Abilities": [
+                "+1HR"
+            ]
+        },
+        "PowerSnappa": {
+            "Range": 0,
+            "Type": "Melee",
+            "S": "+2",
+            "AP": -2,
+            "D": "2"
         }
     }
 }

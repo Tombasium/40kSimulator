@@ -196,6 +196,38 @@ attack_profiles = [
         }
     },
     {
+        'attacker': 'meganobz',
+        'defender': 'tyrannofex',
+        'waagh': False,
+        'profile':{
+            'debug': False, 
+            'A': 20, 
+            'S': 10, 
+            'WS': 3, 
+            'T': 8, 
+            'Sv': 6, 
+            'Dam': 2,
+            'xplode': 6,
+            'HRAmod': -1
+        }
+    },
+    {
+        'attacker': 'meganobz',
+        'defender': 'tyrannofex',
+        'waagh': True,
+        'profile':{
+            'debug': False, 
+            'A': 25, 
+            'S': 12, 
+            'WS': 3, 
+            'T': 8, 
+            'Sv': 6, 
+            'Dam': 2,
+            'xplode': 6,
+            'HRAmod': -1
+        }
+    },
+    {
         'attacker': 'nobz',
         'defender': 'Tyranid Warriors',
         'waagh': False,

@@ -3,24 +3,17 @@ from typing import Optional
 
 from weapon import Weapon
 
+from utils import parse_model_data
+
+MODELS = parse_model_data()
+
 @dataclass
 class Model():
     name: str
-    M: int
-    WS: int
-    BS: int
-    S: int
-    T: int
-    W: int
-    A: int
-    Ld: int
-    Sv: int
-    base: int
-    inv: Optional[int]
-    HRAmod: Optional[int]
-    HRDmod: Optional[int]
-    WRAmod: Optional[int]
-    WRDmod: Optional[int]
-    Weapons: Optional[list[Weapon]]
-    Abilities: Optional[list]
+    stats: dict
+    weapons: list[Weapon]
     
+    def __init__(self, modelName: str):
+        self.name = modelName
+        self.stats = MODELS[modelName]
+        self.weapons = self.stats.get("Weapons")

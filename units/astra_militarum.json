@@ -1,10 +1,10 @@
 {
-    "Bloodletters":{
-        "Bloodletter": {
+    "Cadian Shock Troops":{
+        "Shock Trooper": {
             "min": 9,
             "max": 9
         },
-        "Bloodreaper": {
+        "Shock Trooper Sergeant": {
             "leader": true,
             "min": 1,
             "max": 1

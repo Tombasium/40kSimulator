@@ -9,7 +9,10 @@
     "A":2,
     "Ld":6,
     "Sv":6,
-    "Base":32
+    "Base":32,
+    "Weapons": [
+      "Choppa"
+    ]
   },
   "BoyzBossNob":{
     "M":5,
@@ -21,7 +24,10 @@
     "A":3,
     "Ld":7,
     "Sv":6,
-    "Base":32
+    "Base":32,
+    "Weapons": [
+      "PowerKlaw"
+    ]
   },
   "BeastSnaggaBoy":{
     "M":5,
@@ -34,7 +40,10 @@
     "Ld":6,
     "Sv":6,
     "inv": 6,
-    "Base":32
+    "Base":32,
+    "Weapons": [
+      "Choppa"
+    ]
   },
   "BeastSnaggaNob":{
     "M":5,
@@ -47,7 +56,10 @@
     "Ld":7,
     "Sv":6,
     "inv": 6,
-    "Base":32
+    "Base":32,
+    "Weapons": [
+      "PowerSnappa"
+    ]
   },
   "Nob":{
     "M":5,
@@ -59,7 +71,11 @@
     "A":3,
     "Ld":7,
     "Sv":4,
-    "Base":32
+    "Base":32,
+    "Weapons": [
+      "Choppa", 
+      "BigChoppa"
+    ]
   },
   "BossNob":{
     "M":5,
@@ -70,7 +86,43 @@
     "W":2,
     "A":3,
     "Ld":7,
-    "Sv":6,
-    "Base":32
+    "Sv":4,
+    "Base":32,
+    "Weapons": [
+      "Choppa", 
+      "BigChoppa"
+    ]
+  },
+  "Meganob":{
+    "M":5,
+    "WS":3,
+    "BS":5,
+    "S":5,
+    "T":5,
+    "W":3,
+    "A":3,
+    "Ld":7,
+    "Sv":2,
+    "Base":40,
+    "Weapons": [
+      "Killsaw", 
+      "Killsaw"
+    ]
+  },
+  "BossMeganob":{
+    "M":5,
+    "WS":3,
+    "BS":5,
+    "S":5,
+    "T":5,
+    "W":3,
+    "A":3,
+    "Ld":7,
+    "Sv":2,
+    "Base":40,
+    "Weapons": [
+      "Killsaw", 
+      "Killsaw"
+    ]
   }
 }
