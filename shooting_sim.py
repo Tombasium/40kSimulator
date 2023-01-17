@@ -94,36 +94,44 @@ def get_wound_rolls(
     
     return [x for x in rolls if x >= needed]
 
+def roll_right_die(die: str):
+    if die == "3":
+        return [roll_d3(), 3]
+    if die == "6":
+        return [roll_d6(), 6]
+
 def roll_variable_dice(
     dice: str,
     size_of_target_unit: int, 
     blast: bool = False
 ):
     result = 0
+    max_roll = 0
 
-    components = result.split("+")
+    components = dice.split("+")
 
-    if len(components > 1):
+    if len(components) > 1:
         result = int(components[1])
+        max_roll = int(components[1])
     
-    dice_to_roll_components = components.split("D")
+    dice_to_roll_components = components[0].split("D")
 
-    if len(dice_to_roll_components > 1):
-        if dice_to_roll_components[1] == "3":
-            for x in range(int(dice_to_roll_components[0])):
-                result += roll_d3()
-                max_shots = int(dice_to_roll_components[0]) * 3
-
-        if dice_to_roll_components[1] == "6":
-            for x in range(int(dice_to_roll_components[0])):
-                result += roll_d6()
-                max_shots = int(dice_to_roll_components[0]) * 6
+    if dice_to_roll_components[0] != "":
+        num_dice = int(dice_to_roll_components[0])
+        for x in range(num_dice):
+            right_die_result = roll_right_die(dice_to_roll_components[1])
+            result += right_die_result[0]
+            max_roll += right_die_result[1]
+    else: 
+        right_die_result = roll_right_die(dice_to_roll_components[1])
+        result += right_die_result[0]
+        max_roll += right_die_result[1]
 
     if blast:
         if size_of_target_unit >= 6 and size_of_target_unit < 11:
             result = max(result, 3)
         elif size_of_target_unit >= 11:
-            result = max_shots
+            result = max_roll
     
     return result
 
@@ -178,6 +186,37 @@ def roll_saves(
 
     return [x for x in save_rolls if x < save_needed]
 
+def apply_wounds_to_target(
+    wounds_caused: list[int],
+    defender: dict
+):
+    wounds_per_defender = defender["W"]
+    number_of_defenders = defender["Model count"]
+    defender_wounds = [wounds_per_defender for x in range(number_of_defenders)]
+
+    while len(defender_wounds) > 0 and len(wounds_caused) > 0:
+        defender_wounds = sorted(defender_wounds)
+        for defender in defender_wounds:
+            if defender in wounds_caused:
+                defender_wounds.remove(defender)
+                wounds_caused.remove(defender)
+    #            print("attack killed one defender: {0} defenders and {1} hits remain".format(len(defender_wounds), len(wounds_caused)))
+                break
+            elif max(wounds_caused) < defender:
+                highest_damage = max(wounds_caused)
+                defender_wounds.remove(defender)
+                defender_wounds.append(defender - highest_damage)
+                wounds_caused.remove(highest_damage)
+    #            print("Attack takes {0} wounds from defender, which has {1} wounds remaining. {2} wounds remain to be resolved".format(highest_damage, defender, len(wounds_caused)))
+                break
+            elif min(wounds_caused) > defender:
+                lowest_damage = min(wounds_caused)
+                defender_wounds.remove(defender)
+                defender_wounds.append(defender - lowest_damage)
+                wounds_caused.remove(lowest_damage)
+                break
+
+    return defender_wounds
 
 def shoot_weapon(
     attacker_bs: int,
@@ -194,6 +233,8 @@ def shoot_weapon(
 ):
     S = weapon["S"]
 
+    T = defender["T"]
+
     number_of_shots = determine_number_of_shots(weapon=weapon, target_unit_size=defender["Model count"], half_range=half_range)
 
     hits = get_hit_rolls(shots=number_of_shots, BS=attacker_bs, castellan=castellan,leontus=Leontus, leontus_ballsy_hit=Leontus_balls, born_soldiers_trigger=born_soldiers_trigger)
@@ -204,9 +245,7 @@ def shoot_weapon(
 
     damages_done = [calculate_damage(weapon) for x in saves]
 
-    #TODO: Overcharged Las - add the mortal wounds bit here
-
-    return damages_done
+    return [damages_done, wounds.count(6)]
 
 
 def make_shooting_attack(
@@ -237,6 +276,7 @@ def make_shooting_attack(
     attacker_bs = attacker_profile.get("BS", None)
 
     damage_done = []
+    sixes_to_wound = 0
 
     for weapon in attacker_profile["Weapons"]:
         weapon_profile = attacker_profile["Weapons"][weapon]
@@ -244,7 +284,17 @@ def make_shooting_attack(
             if weapon in ["Hotshot Lasgun", "Lasgun"]:
                 weapon_profile["Type"] = "Heavy"
                 weapon_profile["Shots"] = 3
-        damage_done += shoot_weapon(attacker_bs=attacker_bs, weapon=weapon_profile, defender=defender_profile, half_range=half_range, Leontus=Leontus, Leontus_balls=Leontus_balls, regimental_standard=regimental_standard, castellan=castellan, overcharged_las=overcharged_las, born_soldiers_trigger=born_soldiers_trigger, Creed=Creed)
+        shots = shoot_weapon(attacker_bs=attacker_bs, weapon=weapon_profile, defender=defender_profile, half_range=half_range, Leontus=Leontus, Leontus_balls=Leontus_balls, regimental_standard=regimental_standard, castellan=castellan, overcharged_las=overcharged_las, born_soldiers_trigger=born_soldiers_trigger, Creed=Creed)
+        damage_done += shots[0]
+        if weapon in ["Hotshot Lasgun", "Hotshot Laspistol", "Hotshot Volleygun"]:
+            sixes_to_wound += shots[1]
+    if overcharged_las:
+        for x in range(min(sixes_to_wound, 6)):
+            damage_done.append(1)
+
+    remaining_defenders = apply_wounds_to_target(wounds_caused=damage_done,defender=defender_profile)
+
+    print("{0} models remain from a squad of {1}".format(len(remaining_defenders), defender_profile["Model count"]))
 
 
 def shock_troops_into_vanguard(
