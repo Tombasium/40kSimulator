@@ -2,6 +2,25 @@ from typing import Optional
 
 from utils import make_word_green, make_word_red, roll_d6
 
+def determine_wound_roll_needed(
+    S: int, 
+    T :int,
+    WRAmod: int = 0,
+    WRDmod: int = 0
+):
+    if S >= 2*T:
+        needed_roll_to_wound = 2
+    elif S > T:
+        needed_roll_to_wound = 3
+    elif S == T:
+        needed_roll_to_wound = 4
+    elif S <= T/2:
+        needed_roll_to_wound = 6
+    else:
+        needed_roll_to_wound = 5
+
+    return needed_roll_to_wound - WRAmod + WRDmod
+
 def roll_to_hit(
     debug: bool, 
     WS: int, 

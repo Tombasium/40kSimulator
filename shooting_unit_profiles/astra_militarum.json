@@ -1,0 +1,188 @@
+{
+    "Kasrkin":{
+        "BS": 3,
+        "T": 3,
+        "W": 1,
+        "Sv": 4,
+        "Model count": 10,
+        "Weapons": {
+            "Hotshot Laspistol": {
+                "Number": 1,
+                "Type": "Pistol",
+                "Shots": 1,
+                "S": 3,
+                "AP": -2,
+                "D": 1 
+            },
+            "Hotshot Lasgun": {
+                "Number": 5,
+                "Type": "Rapid Fire",
+                "Shots": 1,
+                "S": 3,
+                "AP": -2,
+                "D": 1 
+            },
+            "Hotshot Volleygun": {
+                "Number": 2,
+                "Type": "Rapid Fire",
+                "Shots": 2,
+                "S": 4,
+                "AP": -2,
+                "D": 1 
+            },
+            "Plasma gun overcharged": {
+                "Number": 2,
+                "Type": "Rapid Fire",
+                "Shots": 1,
+                "S": 8,
+                "AP": -3,
+                "D": 2 
+            }
+        }
+    },
+    "Scions": {
+        "BS": 3,
+        "T": 3,
+        "W": 1,
+        "Sv": 4,
+        "Model count": 10,
+        "Weapons": {
+            "Hotshot Laspistol": {
+                "Number": 1,
+                "Type": "Pistol",
+                "Shots": 1,
+                "S": 3,
+                "AP": -2,
+                "D": 1 
+            },
+            "Hotshot Lasgun": {
+                "Number": 5,
+                "Type": "Rapid Fire",
+                "Shots": 1,
+                "S": 3,
+                "AP": -2,
+                "D": 1 
+            },
+            "Hotshot Volleygun": {
+                "Number": 2,
+                "Type": "Rapid Fire",
+                "Shots": 2,
+                "S": 4,
+                "AP": -2,
+                "D": 1 
+            },
+            "Plasma gun overcharged": {
+                "Number": 2,
+                "Type": "Rapid Fire",
+                "Shots": 1,
+                "S": 8,
+                "AP": -3,
+                "D": 2 
+            }
+        }
+    },
+    "Cadian Shock Troops": {
+        "BS": 4,
+        "T": 3,
+        "W": 1,
+        "Sv": 5,
+        "Model count": 10,
+        "Weapons": {
+            "Laspistol": {
+                "Number": 1,
+                "Type": "Pistol",
+                "Shots": 1,
+                "S": 3,
+                "AP": 0,
+                "D": 1 
+            },
+            "Lasgun": {
+                "Number": 7,
+                "Type": "Rapid Fire",
+                "Shots": 1,
+                "S": 3,
+                "AP": 0,
+                "D": 1 
+            },
+            "Plasma gun overcharged": {
+                "Number": 2,
+                "Type": "Rapid Fire",
+                "Shots": 1,
+                "S": 8,
+                "AP": -3,
+                "D": 2 
+            }
+        }
+    },
+    "Mortars": {
+        "BS": 4,
+        "T": 3,
+        "W": 2,
+        "Sv": 5,
+        "Model count": 3,
+        "Weapons": {
+            "Mortar": {
+                "Number": 3,
+                "Type": "Heavy",
+                "Shots": "D6",
+                "S": 5,
+                "AP": 0,
+                "D": 1,
+                "Blast": true
+            }
+        }
+    },
+    "Field Ordnance Bombast": {
+        "BS": 4,
+        "T": 4,
+        "W": 6,
+        "Sv": 4,
+        "Model count": 2,
+        "Weapons": {
+            "Bombast": {
+                "Number": 2,
+                "Type": "Heavy",
+                "Shots": "D6",
+                "S": 7,
+                "AP": -2,
+                "D": 2,
+                "Blast": true
+            }
+        }
+    },
+    "Field Ordnance Malleus": {
+        "BS": 4,
+        "T": 4,
+        "W": 6,
+        "Sv": 4,
+        "Model count": 2,
+        "Weapons": {
+            "Malleus Rocket Launcher": {
+                "Number": 2,
+                "Type": "Heavy",
+                "Shots": "D6+6",
+                "S": 6,
+                "AP": -1,
+                "D": 1,
+                "Blast": true
+            }
+        }
+    },
+    "Basilisk": {
+        "BS": 4,
+        "T": 7,
+        "W": 11,
+        "Sv": 3,
+        "Model count": 1,
+        "Weapons": {
+            "Earthshaker": {
+                "Number": 1,
+                "Type": "Heavy D6+3",
+                "S": 10,
+                "AP": -3,
+                "D": 2,
+                "Blast": true
+            }
+        }
+    }
+}

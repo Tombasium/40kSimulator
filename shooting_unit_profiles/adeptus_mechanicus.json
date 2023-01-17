@@ -1,0 +1,21 @@
+{
+    "Skitarii Vanguard": {
+        "BS": 3,
+        "T": 3,
+        "W": 1,
+        "Sv": 4,
+        "inv": 5,
+        "Model count": 20,
+        "Weapons": {
+            "Radium Carbine": {
+                "Number": 20,
+                "Type": "Assault",
+                "Shots": 3,
+                "S": 6,
+                "AP": -1,
+                "D": 1,
+                "Blast": true
+            }
+        }
+    }
+}
